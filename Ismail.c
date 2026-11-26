@@ -1,3 +1,5 @@
+/*ISMALIL : RECORD A CAR WASH*/
+
 while (menuChoice != 3)
     {
         printf("\n========================================\n");
@@ -87,13 +89,13 @@ while (menuChoice != 3)
                 printf("Status: Water usage is within the target limit.\n");
             }
 
-            /* Update category records */
+            /* category records are being updated here */
             categoryCars[categoryIndex] = categoryCars[categoryIndex] + 1;
             categoryTargetTotal[categoryIndex] = categoryTargetTotal[categoryIndex] + targetLimit;
             categoryActualWater[categoryIndex] = categoryActualWater[categoryIndex] + actualWater;
             categoryExcessWater[categoryIndex] = categoryExcessWater[categoryIndex] + excessWater;
 
-            /* Update overall daily counters */
+            /* overall daily counters are being updated here */
             totalCarsWashed = totalCarsWashed + 1;
             totalWaterUsed = totalWaterUsed + actualWater;
             totalExcessWater = totalExcessWater + excessWater;
