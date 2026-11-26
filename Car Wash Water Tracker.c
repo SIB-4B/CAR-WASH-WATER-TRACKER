@@ -1,25 +1,21 @@
 #include <stdio.h>
 int main()
 {
-    /* Target water limits per wash category (in liters) */
     const int BASIC_LIMIT = 40;
     const int FULL_LIMIT = 60;
     const int PREMIUM_LIMIT = 100;
 
-    /* Category-wise arrays: index 0 = Basic, 1 = Full, 2 = Premium */
     int targetLimits[3] = {BASIC_LIMIT, FULL_LIMIT, PREMIUM_LIMIT};
     int categoryCars[3] = {0, 0, 0};
     int categoryTargetTotal[3] = {0, 0, 0};
     int categoryActualWater[3] = {0, 0, 0};
     int categoryExcessWater[3] = {0, 0, 0};
 
-    /* Overall daily counters */
     int totalCarsWashed = 0;
     int totalWaterUsed = 0;
     int totalExcessWater = 0;
 
     int menuChoice = 0;
-
     while (menuChoice != 3)
     {
         printf("\n========================================\n");
@@ -35,7 +31,7 @@ int main()
         {
             while (getchar() != '\n')
             {
-                /* Clear invalid non-numeric input */
+                
             }
             printf("\nInvalid input. Please enter a number between 1 and 3.\n");
             continue;
@@ -59,7 +55,7 @@ int main()
             {
                 while (getchar() != '\n')
                 {
-                    /* Clear invalid input */
+    
                 }
                 printf("\nInvalid wash service choice. Returning to main menu.\n");
                 continue;
@@ -89,13 +85,12 @@ int main()
             {
                 while (getchar() != '\n')
                 {
-                    /* Clear invalid input */
+                  
                 }
                 printf("\nInvalid water amount. Returning to main menu.\n");
                 continue;
             }
 
-            /* Compare actual water against target limit */
             if (actualWater > targetLimit)
             {
                 excessWater = actualWater - targetLimit;
@@ -109,13 +104,11 @@ int main()
                 printf("Status: Water usage is within the target limit.\n");
             }
 
-            /* Update category records */
             categoryCars[categoryIndex] = categoryCars[categoryIndex] + 1;
             categoryTargetTotal[categoryIndex] = categoryTargetTotal[categoryIndex] + targetLimit;
             categoryActualWater[categoryIndex] = categoryActualWater[categoryIndex] + actualWater;
             categoryExcessWater[categoryIndex] = categoryExcessWater[categoryIndex] + excessWater;
 
-            /* Update overall daily counters */
             totalCarsWashed = totalCarsWashed + 1;
             totalWaterUsed = totalWaterUsed + actualWater;
             totalExcessWater = totalExcessWater + excessWater;
